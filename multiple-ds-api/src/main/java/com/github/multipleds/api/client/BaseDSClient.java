@@ -87,7 +87,7 @@ public class BaseDSClient implements DSClient {
     @Override
     public Connection getSqlConnection() {
         try {
-            return this.dataSource.getConnection()
+            return this.dataSource.getConnection();
         }catch (Exception e){
             return null;
         }
