@@ -14,10 +14,10 @@ import static java.lang.String.format;
  */
 public class DSChannelManager {
 
-    private final Map<String, DsChannel> datasourceClientMap = new ConcurrentHashMap<>();
+    private final Map<String, DsChannel> datasourceChannelMap = new ConcurrentHashMap<>();
 
     public Map<String, DsChannel> getDataSourceChannelMap() {
-        return Collections.unmodifiableMap(datasourceClientMap);
+        return Collections.unmodifiableMap(datasourceChannelMap);
     }
 
     public void installPlugin() {
@@ -26,7 +26,7 @@ public class DSChannelManager {
         for (Map.Entry<String, DSChannelFactory> entry : prioritySPIFactory.getSPIMap().entrySet()) {
             final DSChannelFactory factory = entry.getValue();
             final String name = entry.getKey();
-            if (datasourceClientMap.containsKey(name)) {
+            if (datasourceChannelMap.containsKey(name)) {
                 throw new IllegalStateException(format("Duplicate datasource plugins named '%s'", name));
             }
             loadDatasourceClient(factory);
@@ -35,6 +35,6 @@ public class DSChannelManager {
 
     private void loadDatasourceClient(DSChannelFactory datasourceChannelFactory) {
         DsChannel datasourceChannel = datasourceChannelFactory.create();
-        datasourceClientMap.put(datasourceChannelFactory.getLabel(), datasourceChannel);
+        datasourceChannelMap.put(datasourceChannelFactory.getLabel(), datasourceChannel);
     }
 }

@@ -2,7 +2,6 @@ package com.github.multipleds.example;
 
 import com.github.multipleds.api.BaseConnectParam;
 import com.github.multipleds.api.DbType;
-import com.github.multipleds.api.client.DSClientProvider;
 import com.github.multipleds.api.util.DSUtils;
 import com.github.multipleds.pgsql.PgsqlConnectParam;
 
@@ -11,9 +10,7 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author wang xiao
