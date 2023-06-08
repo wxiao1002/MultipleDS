@@ -21,3 +21,24 @@ multiple data source manager and Execute SQL ,手动管理多个数据源 并且
 - 使用DSUtils
 - DSClientProvider
 - 参考example
+```
+        PgsqlConnectParam connectionParam =new PgsqlConnectParam();
+        connectionParam.setAddress("123.249.117.198");
+        connectionParam.setPort(5432);
+        connectionParam.setDatabase("things_link");
+        connectionParam.setUsername("xxx");
+        connectionParam.setPassword("xxx@1xxx23!");
+        connectionParam.setDriverClassName("org.postgresql.Driver");
+        Connection connection =
+                DSUtils.getConnection(DbType.POSTGRESQL, connectionParam);
+        // connect 可以做任何事情
+        // 或者扩展下 交给jdbctemplate 执行
+                
+```
+
+<br/>
+有缓存的使用（Map）
+```
+DSClientProvider.getInstance().getConnection(DbType.POSTGRESQL, connectionParam)
+
+```
