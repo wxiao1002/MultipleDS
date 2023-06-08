@@ -1,5 +1,6 @@
 package com.github.multipleds.spi;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ServiceLoader;
@@ -34,5 +35,9 @@ public class PrioritySPIFactory <T extends PrioritySPI>{
         } else if (newSPI.compareTo(oldSPI.getIdentify().priority()) > 0) {
             map.put(label, newSPI);
         }
+    }
+
+    public Map<String, T> getSPIMap() {
+        return Collections.unmodifiableMap(map);
     }
 }

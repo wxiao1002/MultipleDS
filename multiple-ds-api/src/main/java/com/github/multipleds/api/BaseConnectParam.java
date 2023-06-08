@@ -16,9 +16,9 @@ public abstract class BaseConnectParam implements Serializable {
 
     protected String address;
 
-    protected String database;
+    protected Integer port;
 
-    protected String driverLocation;
+    protected String database;
 
     protected String driverClassName;
 
@@ -62,14 +62,6 @@ public abstract class BaseConnectParam implements Serializable {
         this.database = database;
     }
 
-    public String getDriverLocation() {
-        return driverLocation;
-    }
-
-    public void setDriverLocation(String driverLocation) {
-        this.driverLocation = driverLocation;
-    }
-
     public String getDriverClassName() {
         return driverClassName;
     }
@@ -108,5 +100,13 @@ public abstract class BaseConnectParam implements Serializable {
 
     public void setMaximumPoolSize(Integer maximumPoolSize) {
         this.maximumPoolSize = maximumPoolSize;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
     }
 }

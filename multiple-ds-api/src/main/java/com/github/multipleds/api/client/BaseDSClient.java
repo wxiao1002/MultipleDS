@@ -52,15 +52,23 @@ public class BaseDSClient implements DSClient {
 
     protected void checkValidationQuery() {
         if (Objects.isNull(this.baseConnectParam.getValidateQuery())|| this.baseConnectParam.getValidateQuery().isBlank()) {
-            this.baseConnectParam.setValidateQuery(DEFAULT_VALIDATE_QUERY);
+            this.setDefaultValidateQuery();
         }
+    }
+
+    protected void setDefaultValidateQuery() {
+        this.baseConnectParam.setValidateQuery(DEFAULT_VALIDATE_QUERY);
     }
 
 
     protected void checkUsername() {
         if (Objects.isNull(this.baseConnectParam.getUsername())|| this.baseConnectParam.getAddress().isBlank()) {
-            this.baseConnectParam.setUsername(DEFAULT_USERNAME);
+            this.setDefaultUsername();
         }
+    }
+
+    protected void setDefaultUsername() {
+        this.baseConnectParam.setUsername(DEFAULT_USERNAME);
     }
 
 

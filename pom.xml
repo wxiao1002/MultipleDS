@@ -9,6 +9,13 @@
     <modules>
         <module>multiple-ds-api</module>
         <module>multiple-ds-spi</module>
+        <module>multiple-ds-mysql</module>
+        <module>multiple-ds-pgsql</module>
+        <module>multiple-ds-oracle</module>
+        <module>multiple-ds-db2</module>
+        <module>multiple-ds-dameng</module>
+        <module>multiple-ds-ssh</module>
+        <module>example</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -21,7 +28,15 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        <spring.jdbc.version>5.3.26</spring.jdbc.version>
+        <HikariCP.version>4.0.3</HikariCP.version>
+        <auto-service.version>1.0.1</auto-service.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
+        <postgresql.version>42.4.1</postgresql.version>
+        <oracle-jdbc.version>21.5.0.0</oracle-jdbc.version>
+        <dameng-jdbc.version>8.1.2.79</dameng-jdbc.version>
+        <h2.version>2.1.210</h2.version>
+        <sshd.version>2.8.0</sshd.version>
     </properties>
 
     <dependencyManagement>
@@ -29,22 +44,72 @@
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
-                <version>4.0.3</version>
+                <version>${HikariCP.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github</groupId>
+                <groupId>com.github.multiple-ds</groupId>
                 <artifactId>multiple-ds-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github</groupId>
+                <groupId>com.github.multiple-ds</groupId>
                 <artifactId>multiple-ds-spi</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.github.multiple-ds</groupId>
+                <artifactId>multiple-ds-pgsql</artifactId>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
-                <version>5.3.26</version>
+                <version>${spring.jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>${auto-service.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle.database.jdbc</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>${oracle-jdbc.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>DmJdbcDriver18</artifactId>
+                <version>${dameng-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-sftp</artifactId>
+                <version>${sshd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-scp</artifactId>
+                <version>${sshd.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

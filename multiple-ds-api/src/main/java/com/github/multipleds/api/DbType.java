@@ -13,20 +13,35 @@ import java.util.stream.Collectors;
  */
 public enum DbType {
 
+    /**
+     * mysql
+     */
     MYSQL(0, "mysql"),
-    POSTGRESQL(1, "postgresql"),
-    HIVE(2, "hive"),
-    SPARK(3, "spark"),
-    CLICKHOUSE(4, "clickhouse"),
-    ORACLE(5, "oracle"),
-    SQLSERVER(6, "sqlserver"),
-    DB2(7, "db2"),
-    PRESTO(8, "presto"),
-    H2(9, "h2"),
-    REDSHIFT(10, "redshift"),
-    ATHENA(11, "athena"),
 
-    OCEAN_BASE(12, "oceanBase");
+    /**
+     * postgresql
+     */
+    POSTGRESQL(1, "postgresql"),
+
+    /**
+     * dameng
+     */
+    DAMENG(2, "dameng"),
+    /**
+     * ORACLE
+     */
+    ORACLE(3, "oracle"),
+
+    /**
+     * DB2
+     */
+    DB2(4, "db2"),
+
+    /**
+     * ssh
+     */
+    SSH(5, "ssh"),
+    ;
 
 
     private final int code;
