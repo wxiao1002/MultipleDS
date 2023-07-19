@@ -38,7 +38,7 @@ multiple data source manager and Execute SQL ,手动管理多个数据源 并且
 
 <br/>
 有缓存的使用（Map）
+<br/>
 ```
 DSClientProvider.getInstance().getConnection(DbType.POSTGRESQL, connectionParam)
-
 ```
